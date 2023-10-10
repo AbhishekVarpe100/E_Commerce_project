@@ -1,7 +1,7 @@
 
 const express = require('express');
-const router=express.Router();
-const myconnection=require('../connection')
+const router = express.Router();
+const myconnection = require('../connection')
 const multer = require('multer')
 const path = require('path');
 
@@ -116,12 +116,12 @@ router.post("/add", upload.single('file'), (req, res) => {
 })
 
 //cart
-router.post('/cart',(req,res)=>{
+router.post('/cart', (req, res) => {
 
-    const {id,file,category,name,price}=req.body;
+    const { id, file, category, name, price } = req.body;
 
     try {
-        myconnection.query('insert into cart(id,file,category,name,price) values(?,?,?,?,?)', [id,file, category, name, price], (err, result) => {
+        myconnection.query('insert into cart(id,file,category,name,price) values(?,?,?,?,?)', [id, file, category, name, price], (err, result) => {
             if (err) {
                 console.log(err)
             }
@@ -133,8 +133,25 @@ router.post('/cart',(req,res)=>{
         console.log(error)
     }
 
-   
+
 
 })
 
-module.exports=router;
+
+router.post('/order', (req, res) => {
+    const { name, mobile, pin, address } = req.body;
+    try {
+        myconnection.query('insert into place_order(name,mobile,pin,address) values(?,?,?,?)', [name, mobile, pin, address], (err, results) => {
+            if (err) {
+                console.log(err)
+            }
+            else {
+                res.json('success')
+            }
+        })
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+module.exports = router;

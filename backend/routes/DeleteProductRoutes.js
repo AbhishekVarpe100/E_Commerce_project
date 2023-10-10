@@ -123,5 +123,19 @@ router.post('/deletecart',(req,res)=>{
     })
 })
 
+//delete orders 
+router.delete('/rejectorder/:id',(req,res)=>{
+    const id=req.params.id;
+    myconnection.query('delete from place_order where id=?',[id],(err,results)=>{
+        if(err){
+            console.log(err)
+        }
+        else{
+            res.json('reject');
+        }
+    })
+    
+})
+
 
 module.exports=router

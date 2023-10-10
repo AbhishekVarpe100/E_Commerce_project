@@ -198,4 +198,47 @@ router.get('/amountcount', async (req, res) => {
 
 })
 
+
+//get customer orders
+router.get('/getorders', (req, res) => {
+    try {
+        myconnection.query('select * from place_order', (err, results) => {
+            if (err) {
+                console.log(err)
+            }
+            else {
+                res.json(results)
+            }
+        })
+
+    } catch (error) {
+        console.log(error)
+    }
+
+})
+
+
+//get orders count
+router.get('/ordercount', async (req, res) => {
+    try {
+
+        myconnection.query('select count(*) as order_count  from place_order', (err, results) => {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                const orderCount = results[0].order_count;
+
+                res.json({ orderCount });
+            }
+        })
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+
+})
+
+
 module.exports = router;
