@@ -16,8 +16,7 @@ router.delete('/deleteaccessories/:name', (req, res) => {
         }
         else {
             res.json('success')
-            myconnection.query('delete from allproducts where name=?', [name])
-
+            
         }
     })
 })
@@ -31,7 +30,7 @@ router.delete('/deletecosmetics/:name', (req, res) => {
         }
         else {
             res.json('success')
-            myconnection.query('delete from allproducts where name=?', [name])
+            
 
         }
     })
@@ -47,7 +46,7 @@ router.delete('/deletefood/:name', (req, res) => {
         }
         else {
             res.json('success')
-            myconnection.query('delete from allproducts where name=?', [name])
+            
 
         }
     })
@@ -62,7 +61,7 @@ router.delete('/deletefurniture/:name', (req, res) => {
         }
         else {
             res.json('success')
-            myconnection.query('delete from allproducts where name=?', [name])
+            
 
         }
     })
@@ -77,7 +76,7 @@ router.delete('/deletepet/:name', (req, res) => {
         }
         else {
             res.json('success')
-            myconnection.query('delete from allproducts where name=?', [name])
+            
 
         }
     })
@@ -92,30 +91,37 @@ router.delete('/deletemobile/:name', (req, res) => {
         }
         else {
             res.json('success')
-            myconnection.query('delete from allproducts where name=?', [name])
+            
 
         }
     })
 })
 
-
-
-// delete all product
+//delete all products
 router.delete('/deleteall/:id',(req,res)=>{
     const id=req.params.id;
-    try {
-        myconnection.query('delete from allproducts where id=?',[id],(err,result)=>{
-            if(err){
-                console.log(err)
-
-            }
-            else{
-                res.json('success')
-            }
-        })
-    } catch (error) {
-        console.log(error)
-    }
+    myconnection.query('delete from allproducts where id=?',[id],(err,results)=>{
+        if(err){
+            console.log(err)
+        }
+        else{
+            res.json('success')
+        }
+    })
 })
+
+//delete cart products
+router.post('/deletecart',(req,res)=>{
+    const {id,category}=req.body;
+    myconnection.query('delete from cart where id=? and category=?',[id,category],(err,results)=>{
+        if(err){
+            console.log(err)
+        }
+        else{
+            res.json('success');
+        }
+    })
+})
+
 
 module.exports=router

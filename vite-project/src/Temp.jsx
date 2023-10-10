@@ -6,7 +6,7 @@ function Temp() {
 
 
 
-            <h1>Home</h1>
+            <h1>Welcome to our e-shop</h1>
 
 
     </div>

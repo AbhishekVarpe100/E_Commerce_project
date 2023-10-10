@@ -4,14 +4,14 @@ export default function Home() {
     return (
         <div>
             
-            <h1><Link to="/" className="btn btn-danger mx-4">Logout</Link></h1>
+            <h1><Link to="/placeorder" className="btn btn-danger mx-4">Logout</Link></h1>
             <center>
 
             <>
             <h2 className='text-secondary'>Categories</h2>
 
                 <div>
-                    <Link to="/home/cosmetics" className=" btn btn-light m-4">Cosmetics / Body</Link>
+                    <Link to="/home/" className=" btn btn-primary m-4">Cosmetics / Body</Link>
                     <Link to="/home/food" className=" btn btn-light m-4">Food / Beverges</Link>
                     <Link to="/home/furniture" className=" btn btn-light m-4">Furniture / Decor</Link>
                     <Link to="/home/pet" className=" btn btn-light m-4">Pet Care</Link>

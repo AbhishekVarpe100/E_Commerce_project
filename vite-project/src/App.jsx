@@ -33,6 +33,7 @@ import EditFood from './admin/Available/Edit/EditFood';
 import EditFurniture from './admin/Available/Edit/EditFurniture';
 import EditPet from './admin/Available/Edit/EditPet';
 import EditMobile from './admin/Available/Edit/EditMobile';
+import Place_Order from './Place_Order';
 
 
 export default function App() {
@@ -43,29 +44,30 @@ export default function App() {
         </Navbar>
         <Routes>
           <Route path="/" element={<Temp></Temp>}></Route>
+          <Route path="/placeorder" element={<Place_Order></Place_Order>}></Route>
           <Route path="/cart" element={<Cart></Cart>}></Route>
-          <Route path='/login' element={<Login></Login>}></Route>
-          <Route path='/register' element={<Register></Register>}></Route>
-          <Route path='/home' element={<Home></Home>}>
 
-            <Route path='cosmetics' element={<Cosmetics></Cosmetics>}></Route>
+          <Route path='/login' element={<Login></Login>}></Route>
+
+          <Route path='/register' element={<Register></Register>}></Route>
+
+          <Route path='/home' element={<Home></Home>}>
+            <Route path='' element={<Cosmetics></Cosmetics>}></Route>
             <Route path='food' element={<Food></Food>}></Route>
             <Route path='furniture' element={<Furniture></Furniture>}></Route>
             <Route path='pet' element={<Pet></Pet>}></Route>
             <Route path='mobile_laptops' element={<Mobile></Mobile>}></Route>
             <Route path='accessories' element={<Access></Access>}></Route>
-
           </Route>
 
           <Route path='/admin' element={<Admin></Admin>}>
-
           <Route path='getdata' element={<GetData></GetData>}></Route>
           <Route path='add' element={<Add_Product></Add_Product>}></Route>
           <Route path='orders' element={<Orders></Orders>}></Route>
 
           <Route path='available' element={<Available_products></Available_products>}>
 
-          <Route path='all' element={<AllProducts></AllProducts>}></Route>
+          <Route path='' element={<AllProducts></AllProducts>}></Route>
           <Route path='cosmetics' element={<ACosmetics></ACosmetics>}></Route>
           <Route path='food' element={<AFood></AFood>}></Route>
           <Route path='furniture' element={<AFurniture></AFurniture>}></Route>
@@ -80,11 +82,10 @@ export default function App() {
           <Route path='editmobile/:id' element={<EditMobile></EditMobile>}></Route>
 
           </Route>
-
-
-
           </Route>
+
           <Route path='/admin_login' element={<Admin_login></Admin_login>}></Route>
+
         </Routes>
       </Router>
     </div>

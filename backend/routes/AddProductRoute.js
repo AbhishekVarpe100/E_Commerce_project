@@ -115,5 +115,26 @@ router.post("/add", upload.single('file'), (req, res) => {
 
 })
 
+//cart
+router.post('/cart',(req,res)=>{
+
+    const {id,file,category,name,price}=req.body;
+
+    try {
+        myconnection.query('insert into cart(id,file,category,name,price) values(?,?,?,?,?)', [id,file, category, name, price], (err, result) => {
+            if (err) {
+                console.log(err)
+            }
+            else {
+                res.json('success')
+            }
+        })
+    } catch (error) {
+        console.log(error)
+    }
+
+   
+
+})
 
 module.exports=router;

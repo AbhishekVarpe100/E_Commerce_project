@@ -7,7 +7,7 @@ function Available_products() {
     <div>
       <center>
       <div>
-        <Link className='btn btn-primary m-4' to='/admin/available/all'>All Products</Link>
+        <Link className='btn btn-primary m-4' to='/admin/available/'>All Products</Link>
         <Link className='btn btn-sm btn-outline-primary m-4' to='/admin/available/cosmetics'>Cosmetics / Body</Link>
         <Link className='btn btn-sm btn-outline-primary m-4' to='/admin/available/food'>Food / Beverges</Link>
         <Link className='btn btn-sm btn-outline-primary m-4' to='/admin/available/furniture'>Furniture / Decor</Link>

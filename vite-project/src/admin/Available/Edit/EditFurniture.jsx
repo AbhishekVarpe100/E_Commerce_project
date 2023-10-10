@@ -3,6 +3,7 @@ import { useState,useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import '../Style.css'
 function EditFurniture() {
 
   var { id } = useParams();
@@ -74,7 +75,7 @@ function handleUpdate(e) {
       <center>
         {success}
         {failure}
-        <form className='w-25 border p-4 m-4 bg-primary rounded' onSubmit={handleUpdate}>
+        <form className='w-25 addproduct' onSubmit={handleUpdate}>
 
           <br />
           <input value={name} required type="text" onChange={((e) => setName(e.target.value))} placeholder='Product name' className='form-control' /><br />

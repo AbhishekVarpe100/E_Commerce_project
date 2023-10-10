@@ -1,8 +1,8 @@
 
 
 const express = require('express');
-const router=express.Router();
-const myconnection=require('../connection')
+const router = express.Router();
+const myconnection = require('../connection')
 
 
 
@@ -134,4 +134,68 @@ router.get('/pet', (req, res) => {
 
 })
 
-module.exports=router;
+
+//get cart data
+router.get('/cart', (req, res) => {
+    try {
+        myconnection.query('select * from cart', (err, results) => {
+            if (err) {
+                console.log(err)
+            }
+            else {
+                res.json(results)
+            }
+        })
+
+    } catch (error) {
+        console.log(error)
+    }
+
+})
+
+//get cart count
+router.get('/cartcount', async (req, res) => {
+    try {
+
+        myconnection.query('select count(*) as cart_count  from cart', (err, results) => {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                const cartCount = results[0].cart_count;
+
+                res.json({ cartCount });
+            }
+        })
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+
+})
+
+
+//get cart amount count total
+router.get('/amountcount', async (req, res) => {
+    try {
+
+        myconnection.query('select sum(price) as amount_count  from cart', (err, results) => {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                const amtcount = results[0].amount_count;
+
+                res.json({ amtcount });
+            }
+        })
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+
+})
+
+module.exports = router;
