@@ -85,13 +85,10 @@ function Cart() {
         }
 
       </div>
-
-
-
       <div className='row'>
         {data.map((item) => (
 
-          <div className='border text-white col-md-3 col-lg-2 p-4 m-4 rounded' key={item.id} >
+          <div className='border text-white col-md-3 col-lg-2 m-4 myimagetemplate1 p-4 rounded' key={item.id} >
             <img className="card-img-top" src={`http://localhost:3000/Images/${item.file}`} alt="Card image cap" />
             <hr />
             <div className="card-body">

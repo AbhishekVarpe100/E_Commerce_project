@@ -4,7 +4,7 @@ export default function Home() {
     return (
         <div>
             
-            <h1><Link to="/placeorder" className="btn btn-danger mx-4">Logout</Link></h1>
+            <h1><Link to="/" className="btn btn-danger mx-4">Logout</Link></h1>
             <center>
 
             <>

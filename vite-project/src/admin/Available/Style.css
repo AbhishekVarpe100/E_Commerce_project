@@ -16,3 +16,18 @@
     background-image: linear-gradient(to top,rgb(73, 186, 165),green);
     border-radius: 1cm 0px 1cm 0px;
 }
+
+.myimagetemplate1{
+    border-radius: 10cm 0px 0cm 0px;
+   
+}
+.myimagetemplate2{
+    border-radius: 0cm 0px 10cm 0px;
+    margin: 5px;
+}
+.myimagetemplate1:hover{
+    transform: scale(1.02);
+}
+.myimagetemplate2:hover{
+    transform: scale(1.02);
+}
