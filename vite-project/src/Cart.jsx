@@ -80,6 +80,7 @@ function Cart() {
       {count ? <i><h1 className='text-dark mt-4'>Total amount you have to pay is <b>{amount}</b> after delivery</h1></i> : <div></div>}
 
       <div>
+      
         {
           count ? <Link to='/placeorder' className='btn btn-info mb-4' >Place Order</Link> : <div></div>
         }

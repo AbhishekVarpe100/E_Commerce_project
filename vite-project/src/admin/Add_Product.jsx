@@ -5,7 +5,7 @@ import '../Admin/Available/Style.css'
 import { useNavigate } from 'react-router-dom';
 function Add_Product() {
 
-    const navigate=useNavigate();
+    const navigate = useNavigate();
 
     const [file, setFile] = useState('myfile');
     const [category, setCategory] = useState('');
@@ -15,6 +15,7 @@ function Add_Product() {
 
     const [success, setSuccess] = useState('');
     const [failure, setFailure] = useState('');
+    const [progress, setProgress] = useState(0);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -24,7 +25,14 @@ function Add_Product() {
         formData.append("description", description);
         formData.append("price", price);
         formData.append("file", file);
-        axios.post("http://localhost:3000/add", formData)
+        axios.post("http://localhost:3000/add", formData, {
+            onUploadProgress: (progressEvent) => {
+                const percentCompleted = Math.round(
+                    (progressEvent.loaded * 100) / progressEvent.total
+                );
+                setProgress(percentCompleted);
+            },
+        })
             .then(res => {
                 if (res.data === 'success') {
                     setSuccess(<div className='alert alert-primary w-25'><b>Product added successfully</b> </div>)
@@ -33,7 +41,7 @@ function Add_Product() {
 
                         setSuccess('')
 
-                       location.reload()
+                        location.reload()
 
                     }, 3000);
 
@@ -74,8 +82,24 @@ function Add_Product() {
                     <br />
                     <input className='btn btn-warning' type="submit" value="Add Product" />
 
-                </form>
+                    {/* <div className='rounded bg-primary m-4 text-white h5 p-4'>Uploaded: {progress}%</div> */}
+                    <br />
+                    <br />
+                    progress bar
+                    <div className="progress m-4">
 
+                        <div
+                            className="progress-bar progress-bar-striped progress-bar-animated"
+                            role="progressbar"
+                            aria-valuenow={progress}
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                            style={{ width: `${progress}%` }}
+                        >
+                            {progress}%
+                        </div>
+                    </div>
+                </form>
             </center>
 
 
