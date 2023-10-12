@@ -34,7 +34,7 @@ function Orders() {
     axios.delete('http://localhost:3000/rejectorder/' + id)
       .then(res => {
         if (res.data == 'reject') {
-          setReject(<center><div className='alert w-50 text-white' style={{ 'backgroundColor': 'red' }}><b>Order rejected</b> </div></center>)
+          setReject(<center><div className='alert w-50 text-white' style={{ 'backgroundColor': 'red' }}><b>Order cancelled</b> </div></center>)
 
           setTimeout(() => {
             setReject('')

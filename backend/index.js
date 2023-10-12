@@ -13,12 +13,15 @@ const addProduct=require('./routes/AddProductRoute')
 const deleteProduct=require('./routes/DeleteProductRoutes')
 const getProducts=require('./routes/GetProductsRoutes')
 const getAndUpdate=require('./routes/GetAndUpdate')
+const sortingRoutes=require('./routes/SortingRoutes')
 
 app.use(users)
 app.use(addProduct)
 app.use(deleteProduct)
 app.use(getProducts)
-app.use(getAndUpdate)
+app.use(getAndUpdate)   
+app.use(sortingRoutes)
+
 
 app.listen(3000, (req, res) => {
     console.log("Started server")

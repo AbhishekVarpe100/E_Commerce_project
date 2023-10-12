@@ -26,6 +26,7 @@ router.post('/create', async (req, res) => {
 //authorize user
 router.post('/login', async (req, res) => {
     try {
+        
         const { name, password } = req.body;
         myconnection.query('select * from demo2 where name=? and password=?', [name, password], (err, result) => {
             if (err) {

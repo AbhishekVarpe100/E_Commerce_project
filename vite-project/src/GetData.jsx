@@ -55,7 +55,9 @@ function GetData() {
                         <div>Name: {item.name}</div>
                         <div>Email: {item.email}</div>
                         <div>Password: {item.password}</div>
-                        <button onClick={() => handleDelete(item.id)} className='btn btn-sm my-4 btn-danger'>Delete</button>
+
+                        {item.name=='admin' ? <div></div>:<button onClick={() => handleDelete(item.id)} className='btn btn-sm my-4 btn-danger'>Delete user</button>}
+                        
                     </li>
 
                 )): <div className='alert alert-warning'>&#9888; Oops! <i> <b>No data found</b> </i> </div>}

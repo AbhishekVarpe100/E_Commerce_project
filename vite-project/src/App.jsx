@@ -34,6 +34,10 @@ import EditFurniture from './admin/Available/Edit/EditFurniture';
 import EditPet from './admin/Available/Edit/EditPet';
 import EditMobile from './admin/Available/Edit/EditMobile';
 import Place_Order from './Place_Order';
+import By_price from './admin/Available/sort/By_price';
+import By_category from './admin/Available/sort/By_category';
+import By_name from './admin/Available/sort/By_name';
+import All_Pro from './admin/Available/All_Pro';
 
 
 export default function App() {
@@ -65,9 +69,16 @@ export default function App() {
           <Route path='add' element={<Add_Product></Add_Product>}></Route>
           <Route path='orders' element={<Orders></Orders>}></Route>
 
-          <Route path='available' element={<Available_products></Available_products>}>
 
-          <Route path='' element={<AllProducts></AllProducts>}></Route>
+          <Route path='available' element={<Available_products></Available_products>}>
+          <Route path='' element={<AllProducts></AllProducts>}>
+          <Route path='' element={<All_Pro></All_Pro>}></Route> 
+          <Route path='byprice' element={<By_price></By_price>}></Route>
+          <Route path='bycategory' element={<By_category></By_category>}></Route>
+          <Route path='byname' element={<By_name></By_name>}></Route>
+          
+          </Route>
+
           <Route path='cosmetics' element={<ACosmetics></ACosmetics>}></Route>
           <Route path='food' element={<AFood></AFood>}></Route>
           <Route path='furniture' element={<AFurniture></AFurniture>}></Route>
