@@ -31,3 +31,7 @@
 .myimagetemplate2:hover{
     transform: scale(1.02);
 }
+.classofgradient{
+    background-image: linear-gradient(to top,gray,black);
+    color: white;
+}

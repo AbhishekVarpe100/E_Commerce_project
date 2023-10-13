@@ -2,7 +2,7 @@ import React from 'react'
 import './admin/Available/Style.css'
 function Temp() {
   return (
-    <div>
+    <div className='classofgradient'>
 
       <center>
         <h1>Feel free to buy anything 😀</h1>

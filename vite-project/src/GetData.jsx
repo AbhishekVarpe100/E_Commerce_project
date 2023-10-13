@@ -52,7 +52,7 @@ function GetData() {
                 {data.length != 0 ? data.map((item) => (
                     <li key={item.id} className="list-group-item list-group-item-action list-group-item-success m-4 p-4">
                         <b>{item.id}</b>
-                        <div>Name: {item.name}</div>
+                        <div>Name: {item.name} {item.name=='admin' ? <span className='bg-primary text-white p-2'>(You)</span>:<div></div>}</div>
                         <div>Email: {item.email}</div>
                         <div>Password: {item.password}</div>
 
