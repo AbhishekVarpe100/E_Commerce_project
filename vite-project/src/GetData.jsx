@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function GetData() {
-
     const [data, setData] = useState([]);
     const [del,setDelete]=useState("");
     const allData = () => {
@@ -14,7 +13,7 @@ function GetData() {
                 console.error('Error fetching data:', error);
             });
     }
-
+    
     useEffect(() => {
         allData()
     }, []);
@@ -22,7 +21,6 @@ function GetData() {
 
     const handleDelete = async (id) => {
         try {
-
             axios.delete(`http://localhost:3000/delete/${id}`)
                 .then(res => {
                     if (res.data == 'success') {
@@ -37,7 +35,6 @@ function GetData() {
                     }
                 })
                 .catch(err => console.log(err))
-
         }
         catch (err) {
             console.log(err)
