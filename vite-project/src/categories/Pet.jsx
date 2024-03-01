@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import '../Admin/Available/Style.css'
+import '../admin/Available/Style.css'
 function Pet() {
 
     const [data, setProduct] = useState([]);

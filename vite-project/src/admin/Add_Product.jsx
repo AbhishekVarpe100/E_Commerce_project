@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import axios from 'axios';
-import '../Admin/Available/Style.css'
+import '../admin/Available/Style.css'
 import { useNavigate } from 'react-router-dom';
 function Add_Product() {
 

@@ -8,7 +8,7 @@ const myconnection=require('../connection')
 router.post('/create', async (req, res) => {
     try {
         const { name, email, password } = req.body;
-        myconnection.query('insert into demo2(name,email,password) values(?,?,?)', [name, email, password], (err, result) => {
+        myconnection.query('insert into register(name,email,password) values(?,?,?)', [name, email, password], (err, result) => {
             if (err) {
                 res.json("failure")
             }
@@ -25,10 +25,11 @@ router.post('/create', async (req, res) => {
 
 //authorize user
 router.post('/login', async (req, res) => {
+    console.log(req.body)
     try {
         
         const { name, password } = req.body;
-        myconnection.query('select * from demo2 where name=? and password=?', [name, password], (err, result) => {
+        myconnection.query('select * from register where name=? and password=?', [name, password], (err, result) => {
             if (err) {
                 res.json('fail')
             }
@@ -57,7 +58,7 @@ router.post('/login', async (req, res) => {
 router.get('/getdata', async (req, res) => {
 
     try {
-        myconnection.query('select * from demo2', (err, results) => {
+        myconnection.query('select * from register', (err, results) => {
             if (err) {
                 console.log(err)
             }
@@ -80,7 +81,7 @@ router.delete('/delete/:id', (req, res) => {
     //or
     const id = req.params.id;
     try {
-        myconnection.query("delete from demo2 where id=?", [id], (err, result) => {
+        myconnection.query("delete from register where id=?", [id], (err, result) => {
             if (err) {
                 console.log(err)
             }

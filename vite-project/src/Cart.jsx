@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { Link, Outlet } from 'react-router-dom';
 import axios from 'axios';
-import './Admin/Available/Style.css'
+import './admin/Available/Style.css'
 function Cart() {
 
   const [data, setProduct] = useState([]);
@@ -72,7 +72,7 @@ function Cart() {
         {del}
       </center>
 
-      {count ? <i><h1 className='text-dark mt-4'>Total <b>{count}</b> items are in your cart</h1></i>
+      {count ? <i><h1 className='text-dark mt-4'>Total <b>{count}</b> {count==1?<>item is</>:<>items are</>}  in your cart</h1></i>
 
         : <div className='alert alert-warning'>🙁 Oops! <i> <b>Your Cart is empty</b> </i> </div>}
 

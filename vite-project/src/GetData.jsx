@@ -51,7 +51,7 @@ function GetData() {
                         <b>{item.id}</b>
                         <div>Name: {item.name} {item.name=='admin' ? <span className='bg-primary text-white p-2'>(You)</span>:<div></div>}</div>
                         <div>Email: {item.email}</div>
-                        <div>Password: {item.password}</div>
+                        {/* <div>Password: {item.password}</div> */}
 
                         {item.name=='admin' ? <div></div>:<button onClick={() => handleDelete(item.id)} className='btn btn-sm my-4 btn-danger'>Delete user</button>}
                         

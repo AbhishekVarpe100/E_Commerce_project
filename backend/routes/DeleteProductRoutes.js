@@ -100,7 +100,7 @@ router.delete('/deletemobile/:name', (req, res) => {
 //delete all products
 router.delete('/deleteall/:id',(req,res)=>{
     const id=req.params.id;
-    myconnection.query('delete from allproducts where id=?',[id],(err,results)=>{
+    myconnection.query('delete from allProducts where id=?',[id],(err,results)=>{
         if(err){
             console.log(err)
         }
