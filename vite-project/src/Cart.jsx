@@ -9,6 +9,7 @@ function Cart() {
   const [del, setDelete] = useState('');
   const [count, cartCount] = useState('');
   const [amount, totAmount] = useState('')
+  const [rerender,setRerender]=useState(false);
 
   const cartData = () => {
 
@@ -41,7 +42,7 @@ function Cart() {
     cartData();
     getCount();
     getAmount();
-  }, [])
+  }, [rerender])
 
 
   const handleDelete = (id, category) => {
@@ -52,7 +53,7 @@ function Cart() {
           setTimeout(() => {
             setDelete('')
             setTimeout(() => {
-              location.reload();
+              setRerender(!rerender);
             }, 5);
 
           }, 2000);

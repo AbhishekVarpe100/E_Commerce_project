@@ -153,6 +153,7 @@ router.get('/cart', (req, res) => {
 
 })
 
+
 //get cart count
 router.get('/cartcount', async (req, res) => {
     try {

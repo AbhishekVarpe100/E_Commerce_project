@@ -9,8 +9,8 @@ export default function Login() {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     const [success, setSuccess] = useState('')
-    const [login, setLogin] = useState('')
-    const [failure, setFailure] = useState('')
+    const [login, setLogin] = useState('');
+    const [failure, setFailure] = useState('');
     const navigate = useNavigate()
     const handleLogin = async (e) => {
         e.preventDefault();
