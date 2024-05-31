@@ -1,19 +1,19 @@
 
-const mysql2 = require('mysql')
-const dotenv = require('dotenv').config();
-// dotenv.config();
+const mysql = require('mysql')
 
-const connection = mysql2.createConnection({
-    host: '127.0.0.1',
-    user:'root',
-    port: 3306,
+require('dotenv').config();
+
+const connection = mysql.createConnection({
+    host: process.env.HOST, 
+    user: process.env.DATABASE_USER,
+    port: process.env.PORT,
     password: '',
-    database: 'abhishek'
+    database: process.env.DATABASE
 });
 
 connection.connect((err) => {
     if (err) {
-        console.log("Error in server")
+        console.log("Error in server"+ process.env.DATABASE_USER)
     }
     else {
         console.log("Connected successfully");

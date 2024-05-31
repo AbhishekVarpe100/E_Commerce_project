@@ -18,8 +18,6 @@ function All_Pro() {
         allData();
     }, [])
 
-
-
     const handleDelete = (id) => {
 
         let con = confirm("Are you sure want to delete product");
@@ -34,7 +32,6 @@ function All_Pro() {
                     }
                 })
         }
-
     }
 
     return (
@@ -51,6 +48,8 @@ function All_Pro() {
                             <p className="card-title w-100"><b className='text-info'> <i> Product Name : </i> </b>{item.name}</p>
                             <p className="card-text w-100"><b className='text-info'> <i> Product description : </i> </b>{item.description}</p>
                             <h3 className='w-100'><b className='text-white'> <i> Price : </i> </b>{item.price} Rs.</h3>
+                            Created On : <i style={{'opacity':'0.5'}} className='text-white'>{item.createdDate}</i>
+                            
                         </div>
                         <hr />
 
@@ -58,7 +57,7 @@ function All_Pro() {
                             <button onClick={() => handleDelete(item.id)} class="btn btn-danger w-100 my-2">Delete</button>
                         </div>
                     </div>
-
+                    
                 )) : <div className='alert alert-warning'>🙁 Oops! <i> <b>No products are available for sale add some products for sale</b> </i> </div>}
             </div>
 

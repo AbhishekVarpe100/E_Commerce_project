@@ -2,12 +2,10 @@
 const express = require('express');
 const router = express.Router();
 const myconnection = require('../connection')
-const multer = require('multer')
+const multer = require('multer');
 const path = require('path');
 
-
-// Add product
-
+// Add product route
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -32,6 +30,9 @@ router.post("/add", upload.single('file'), (req, res) => {
     const description = req.body.description;
     const price = req.body.price;
 
+    const date = new Date();
+    let dateString=date.toDateString();
+
     try {
         if (category == 'cosmetics') {
 
@@ -41,7 +42,7 @@ router.post("/add", upload.single('file'), (req, res) => {
                 }
                 else {
                     res.json("success")
-                    myconnection.query('insert into allProducts(file,category,name,description,price) values(?,?,?,?,?)', [file, category, name, description, price])
+                    myconnection.query('insert into allProducts(file,category,name,description,price,createdDate) values(?,?,?,?,?,?)', [file, category, name, description, price,dateString])
                 }
             })
         }
@@ -52,7 +53,7 @@ router.post("/add", upload.single('file'), (req, res) => {
                 }
                 else {
                     res.json("success")
-                    myconnection.query('insert into allProducts(file,category,name,description,price) values(?,?,?,?,?)', [file, category, name, description, price])
+                    myconnection.query('insert into allProducts(file,category,name,description,price,createdDate) values(?,?,?,?,?,?)', [file, category, name, description, price,dateString])
                 }
             })
 
@@ -64,7 +65,7 @@ router.post("/add", upload.single('file'), (req, res) => {
                 }
                 else {
                     res.json("success")
-                    myconnection.query('insert into allProducts(file,category,name,description,price) values(?,?,?,?,?)', [file, category, name, description, price])
+                    myconnection.query('insert into allProducts(file,category,name,description,price,createdDate) values(?,?,?,?,?,?)', [file, category, name, description, price,dateString])
                 }
             })
         }
@@ -76,7 +77,7 @@ router.post("/add", upload.single('file'), (req, res) => {
                 }
                 else {
                     res.json("success")
-                    myconnection.query('insert into allProducts(file,category,name,description,price) values(?,?,?,?,?)', [file, category, name, description, price])
+                    myconnection.query('insert into allProducts(file,category,name,description,price,createdDate) values(?,?,?,?,?,?)', [file, category, name, description, price,dateString])
                 }
             })
 
@@ -89,7 +90,7 @@ router.post("/add", upload.single('file'), (req, res) => {
                 }
                 else {
                     res.json("success")
-                    myconnection.query('insert into allProducts(file,category,name,description,price) values(?,?,?,?,?)', [file, category, name, description, price])
+                    myconnection.query('insert into allProducts(file,category,name,description,price,createdDate) values(?,?,?,?,?,?)', [file, category, name, description, price,dateString])
                 }
             })
         }
@@ -100,7 +101,7 @@ router.post("/add", upload.single('file'), (req, res) => {
                 }
                 else {
                     res.json('success')
-                    myconnection.query('insert into allProducts(file,category,name,description,price) values(?,?,?,?,?)', [file, category, name, description, price])
+                    myconnection.query('insert into allProducts(file,category,name,description,price,createdDate) values(?,?,?,?,?,?)', [file, category, name, description, price,dateString])
                 }
             })
 

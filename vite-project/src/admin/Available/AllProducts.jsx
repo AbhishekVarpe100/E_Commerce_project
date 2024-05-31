@@ -14,8 +14,6 @@ function AllProducts() {
     return (
         <div className='m-4'>
             <center className='d-flex w-50'>
-
-
                 <select className='form-control bg-secondary text-white' onChange={handleSelectChange}>
                     <option value="">---Sort by---</option>
                     <option value="byprice">Price</option>
